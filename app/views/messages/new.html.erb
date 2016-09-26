@@ -11,7 +11,11 @@
 
 <%= form_for @message do |f| %>
   <%= f.label :to %>
-  <%= f.select(:to, @contacts) %>
+  <%= f.collection_check_boxes(:to, Contact.all, :phone_number, :name, :include_hidden => false) do |contact| %>
+    <%= contact.check_box %>
+    <%= contact.label %>
+  <% end %>
+
   <%= f.label :from %>
   <%= f.select :from, @numbers %>
   <%= f.label :body %>
