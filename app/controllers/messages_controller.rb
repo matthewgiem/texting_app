@@ -3,18 +3,17 @@ class MessagesController < ApplicationController
   def new
     @message = Message.new
     @numbers = [4156104770]
-    @contacts = [4155900939]
+    @contacts = Contact.all.map {|contact| [contact.name, contact.phone_number]}
   end
 
   def create
     @numbers = [4156104770]
-    @contacts = [4155900939]
+    @contacts = Contact.all.map {|contact| [contact.name, contact.phone_number]}
     @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Your message was sent"
       redirect_to messages_path
     else
-      binding.pry
       render 'new'
     end
   end

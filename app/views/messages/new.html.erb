@@ -11,7 +11,7 @@
 
 <%= form_for @message do |f| %>
   <%= f.label :to %>
-  <%= f.text_field :to %>
+  <%= f.select(:to, @contacts) %>
   <%= f.label :from %>
   <%= f.select :from, @numbers %>
   <%= f.label :body %>
