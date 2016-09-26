@@ -14,6 +14,7 @@ class MessagesController < ApplicationController
       flash[:notice] = "Your message was sent"
       redirect_to messages_path
     else
+      binding.pry
       render 'new'
     end
   end
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @message
+    @message = Message.find(params[:id])
   end
 
 private
