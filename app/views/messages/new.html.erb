@@ -13,13 +13,12 @@
 
 <%= form_for @message do |f| %>
   <div class="form-group">
-  <%= f.label :to %>
-  <%= f.collection_check_boxes(:to, Contact.all, :id, :name, :include_hidden => false) do |contact| %>
-    <%= contact.check_box %>
-    <%= contact.label %>
-  <% end %>
+    <%= f.label :to %>
+    <%= f.collection_check_boxes(:to, Contact.all, :id, :name, :include_hidden => false) do |contact| %>
+      <%= contact.check_box %>
+      <%= contact.label %>
+    <% end %>
   </div>
-
   <div class="form-group">
     <%= f.label :from %>
     <%= f.select :from, @numbers %>
@@ -30,3 +29,5 @@
   </div>
   <%= f.submit class: "btn btn-success" %>
 <% end %>
+
+<%= render :partial => "tweets/form" %>

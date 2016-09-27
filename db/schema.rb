@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927160819) do
+ActiveRecord::Schema.define(version: 20160927210739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160927160819) do
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "phone_number"
+    t.string "twitter_handle"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -25,6 +26,12 @@ ActiveRecord::Schema.define(version: 20160927160819) do
     t.string  "from"
     t.text    "body"
     t.integer "contact_id"
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string  "text"
+    t.integer "contact_id"
+    t.string  "to"
   end
 
 end

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
+    @tweet = Tweet.new
     @message = Message.new
     @numbers = [4156104770]
   end

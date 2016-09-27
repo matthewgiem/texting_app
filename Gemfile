@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'rest-client'
 gem 'bootstrap-sass'
+gem 'twitter'
 
 
 group :development, :test do

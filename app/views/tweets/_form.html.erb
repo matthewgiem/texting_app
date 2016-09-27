@@ -1,0 +1,15 @@
+<br><br>
+<%= form_for @tweet do |f| %>
+<div class="form-group">
+  <%= f.label :to %>
+  <%= f.collection_check_boxes(:to, Contact.all, :id, :name, :include_hidden => false) do |contact| %>
+    <%= contact.check_box %>
+    <%= contact.label %>
+  <% end %>
+</div>
+  <div class="form-group">
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
+<% end %>
