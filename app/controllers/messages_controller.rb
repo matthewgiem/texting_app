@@ -9,13 +9,18 @@ class MessagesController < ApplicationController
   def create
     @numbers = [4156104770]
     @contacts = Contact.all.map {|contact| [contact.name, contact.phone_number]}
-    @message = Message.new(message_params)
-    if @message.save
-      flash[:notice] = "Your message was sent"
-      redirect_to messages_path
-    else
-      render 'new'
+    binding.pry
+    params[:message][:to].each do |number|
+      @message = Message.new(message_params)
+      @message[:to] = number
+      if @message.save
+        flash[:notice] = "Your message was sent"
+      end
+      # else
+      #   render 'new'
+      # end
     end
+    redirect_to messages_path
   end
 
   def index
@@ -28,6 +33,6 @@ class MessagesController < ApplicationController
 
 private
   def message_params
-    params.require(:message).permit(:to[], :from, :body)
+    params.require(:message).permit(:from, :body)
   end
 end
