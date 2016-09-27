@@ -1,4 +1,6 @@
-<h1>New message</h1>
+<h1>Cat Facts</h1>
+
+<h3>Send a cat fact to your friend</h3>
 
 <% if (@message.errors.any?) %>
   <p>Something went wrong:</p>
@@ -10,15 +12,21 @@
 <% end %>
 
 <%= form_for @message do |f| %>
+  <div class="form-group">
   <%= f.label :to %>
   <%= f.collection_check_boxes(:to, Contact.all, :id, :name, :include_hidden => false) do |contact| %>
     <%= contact.check_box %>
     <%= contact.label %>
   <% end %>
+  </div>
 
-  <%= f.label :from %>
-  <%= f.select :from, @numbers %>
-  <%= f.label :body %>
-  <%= f.text_field :body %>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :from %>
+    <%= f.select :from, @numbers %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+  <%= f.submit class: "btn btn-success" %>
 <% end %>
