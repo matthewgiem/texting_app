@@ -1,24 +1,16 @@
-# README
+# Cat Factor Messenger
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Text or tweet a random cat fact to your friends.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+This Ruby on Rails app uses  
 
-* System dependencies
+The app uses Ruby 2.3.1, Rails 5, and Postgres 9.5.2 as the database.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. git clone
+2. bundle install
+3. rake db:setup
+4. create the .env file and populate it with your twilio and twitter auth with the variables: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET
+5. rails server
+6. then visit localhost:3000
